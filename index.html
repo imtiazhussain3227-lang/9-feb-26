@@ -18,9 +18,10 @@
             align-items: center; 
             min-height: 100vh; 
             text-align: right; 
+            overflow: hidden; /* Prevent scrollbar due to heart animation */
         }
         
-        /* Modal Background - Applies to both modals */
+        /* Modal Background */
         .birthday-modal {
             position: fixed;
             z-index: 1000;
@@ -28,8 +29,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
             background-color: rgba(0, 0, 0, 0.6); 
+            display: block; 
         }
         
         /* Modal Content Box */
@@ -42,24 +43,16 @@
             max-width: 500px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             text-align: right; 
-            /* Added Fade In and Pulse Animation */
             animation: fadeIn 1s ease-out, pulse 2s infinite alternate;
+            position: relative; 
         }
         
         /* Headings and Text Styles */
-        .modal-content h1 { color: #e91e63; font-size: 2.2em; margin-bottom: 5px; text-align: center; }
-        .modal-content h2.dob { 
-            color: #333; 
-            font-size: 1.5em; 
-            margin-bottom: 25px; 
-            font-weight: bold; 
-            text-align: center; 
-            border-bottom: 2px solid #e91e63;
-            padding-bottom: 10px;
-        }
+        .modal-content h1 { color: #e91e63; font-size: 2.2em; margin-bottom: 25px; text-align: center; }
+        /* تاریخ پیدائش (DOB) کا کوڈ ہٹا دیا گیا ہے */
         .modal-content p { color: #333; font-size: 1.1em; line-height: 1.8; }
         
-        /* Close Button (Adjusted for RTL layout) */
+        /* Close Button */
         .close-btn { 
             color: #aaa; float: left; 
             font-size: 28px; font-weight: bold; 
@@ -67,30 +60,87 @@
         }
         .close-btn:hover, .close-btn:focus { color: #e91e63; cursor: pointer; }
 
+        /* I LOVE YOU Text Style (Hidden initially) */
+        #iLoveYouMessage {
+            font-size: 3em;
+            color: #e91e63;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 1s; /* Smooth fade in */
+            margin-top: 20px;
+        }
+
         /* Animations */
         @keyframes fadeIn { 
             from { opacity: 0; transform: scale(0.9); } 
             to { opacity: 1; transform: scale(1); } 
         }
         
-        /* Pulse Animation */
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
             100% { transform: scale(1.02); box-shadow: 0 10px 40px rgba(233, 30, 99, 0.5); }
         }
+
+        /* Heart Animation */
+        @keyframes heartMove {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-70vh) rotate(30deg); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            width: 30px;
+            height: 30px;
+            background: #e91e63;
+            transform: rotate(-45deg);
+            z-index: 500;
+            animation: heartMove 10s linear infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #e91e63;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 15px;
+            top: 0;
+        }
+
+        /* Multiple hearts for variety */
+        .heart:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-duration: 8s; background: #ff7f99; }
+        .heart:nth-child(3) { left: 30%; width: 40px; height: 40px; animation-duration: 12s; background: #ff4d6e; }
+        .heart:nth-child(4) { left: 60%; width: 25px; height: 25px; animation-duration: 9s; background: #e91e63; }
+        .heart:nth-child(5) { left: 80%; width: 35px; height: 35px; animation-duration: 11s; background: #ff7f99; }
+
     </style>
 </head>
 <body>
 
-<div id="birthdayModal" class="birthday-modal" style="display: block;">
+<div class="heart" style="left: 5%;"></div>
+<div class="heart" style="left: 20%;"></div>
+<div class="heart" style="left: 45%;"></div>
+<div class="heart" style="left: 70%;"></div>
+<div class="heart" style="left: 90%;"></div>
+
+
+<div id="birthdayModal" class="birthday-modal">
   <div class="modal-content">
     <a href="#" class="close-btn" onclick="document.getElementById('birthdayModal').style.display='none';">&times;</a>
     
     <h1>میری حیات کی روشنی، سالگرہ بہت مبارک ہو! 🎂</h1>
     
-    <h2 class="dob">
-        تاریخ: [٩-فرورئ-٢٠٢٦]
-    </h2>
     <p>
         آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں **خوشی اور روشنی** کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
     </p>
@@ -100,6 +150,11 @@
     <p>
         میں آپ سے کل بھی پیار کرتا تھا، آج بھی کرتا ہوں، اور ہمیشہ کرتا رہوں گا۔ **Happy Birthday, My Everything!**
     </p>
+    
+    <div id="iLoveYouMessage">
+        I LOVE YOU! 💕
+    </div>
+
     <p style="margin-top: 20px; color: #e91e63; font-weight: bold; text-align: center;">
         آپ کا پیار،<br>
         [ملک وہاب]
@@ -107,33 +162,13 @@
     </div>
 </div>
 
-<div id="imageModal" class="birthday-modal" style="display: none;">
-  <div class="modal-content" style="max-width: 400px; padding: 10px;">
-    <a href="#" class="close-btn" style="color: #e91e63; top: 10px; left: 20px;" onclick="document.getElementById('imageModal').style.display='none';">&times;</a>
-    
-    <h3 style="color: #e91e63; font-size: 1.5em; text-align: center; margin-top: 5px;">
-        صرف آپ کے لیے! ❤️
-    </h3>
-    
-         alt="I Love You Soo Much 💕" 
-         style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-    <p style="text-align: center; font-size: 1em; margin-top: 15px;">
-        آپ کی سالگرہ کی مزید خوشیاں!
-    </p>
-  </div>
-</div>
-
 <script>
     // 10 سیکنڈ کی تاخیر (10000 milliseconds)
     setTimeout(function() {
-        // پہلے والے Modal کو چھپا دیں
-        document.getElementById('birthdayModal').style.display = 'none';
-
-        // تصویر والے Modal کو ظاہر کر دیں
-        document.getElementById('imageModal').style.display = 'block';
+        // "I LOVE YOU" پیغام کو ظاہر کر دیں
+        document.getElementById('iLoveYouMessage').style.opacity = '1';
     }, 10000); 
 </script>
 
 </body>
 </html>
-
