@@ -20,9 +20,8 @@
             text-align: right; 
         }
         
-        /* Modal Background */
+        /* Modal Background - Applies to both modals */
         .birthday-modal {
-            display: block; 
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -83,13 +82,15 @@
 </head>
 <body>
 
-<div id="birthdayModal" class="birthday-modal">
+<div id="birthdayModal" class="birthday-modal" style="display: block;">
   <div class="modal-content">
     <a href="#" class="close-btn" onclick="document.getElementById('birthdayModal').style.display='none';">&times;</a>
     
     <h1>میری حیات کی روشنی، سالگرہ بہت مبارک ہو! 🎂</h1>
     
- 
+    <h2 class="dob">
+        تاریخ: [تاریخ پیدائش یہاں لکھیں]
+    </h2>
     <p>
         آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں **خوشی اور روشنی** کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
     </p>
@@ -101,10 +102,38 @@
     </p>
     <p style="margin-top: 20px; color: #e91e63; font-weight: bold; text-align: center;">
         آپ کا پیار،<br>
-        ملک وہاب
+        [ملک وہاب]
     </p>
     </div>
 </div>
+
+<div id="imageModal" class="birthday-modal" style="display: none;">
+  <div class="modal-content" style="max-width: 400px; padding: 10px;">
+    <a href="#" class="close-btn" style="color: #e91e63; top: 10px; left: 20px;" onclick="document.getElementById('imageModal').style.display='none';">&times;</a>
+    
+    <h3 style="color: #e91e63; font-size: 1.5em; text-align: center; margin-top: 5px;">
+        صرف آپ کے لیے! ❤️
+    </h3>
+    
+    <img id="girlPic" src="[https://raw.githubusercontent.com/imtiazhussain3227-lang/lizu-birthday/main/lizu.jpg]" 
+         alt="میری پیاری کی تصویر" 
+         style="width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+    <p style="text-align: center; font-size: 1em; margin-top: 15px;">
+        آپ کی سالگرہ کی مزید خوشیاں!
+    </p>
+  </div>
+</div>
+
+<script>
+    // 10 سیکنڈ کی تاخیر (10000 milliseconds)
+    setTimeout(function() {
+        // پہلے والے Modal کو چھپا دیں
+        document.getElementById('birthdayModal').style.display = 'none';
+
+        // تصویر والے Modal کو ظاہر کر دیں
+        document.getElementById('imageModal').style.display = 'block';
+    }, 10000); 
+</script>
 
 </body>
 </html>
