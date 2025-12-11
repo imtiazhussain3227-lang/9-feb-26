@@ -18,7 +18,7 @@
             align-items: center; 
             min-height: 100vh; 
             text-align: right; 
-            overflow: hidden; /* Prevent scrollbar due to heart animation */
+            overflow: hidden; /* **FIX: Stops scrolling on mobile** */
         }
         
         /* Modal Background */
@@ -36,20 +36,21 @@
         /* Modal Content Box */
         .modal-content {
             background-color: #ffffff;
-            margin: 15% auto; 
-            padding: 30px;
+            margin: 5% auto; /* Adjusted margin for better mobile view */
+            padding: 25px; /* Slightly reduced padding */
             border-radius: 15px;
-            width: 80%;
+            width: 90%; /* **FIX: Wider for mobile** */
             max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 25px rgba(233, 30, 99, 0.8), 0 0 50px rgba(233, 30, 99, 0.5); /* **NEW: Red Glow/Blur Edge** */
             text-align: right; 
             animation: fadeIn 1s ease-out, pulse 2s infinite alternate;
             position: relative; 
+            max-height: 90vh; /* **FIX: Prevents overflow on smaller screens** */
+            overflow-y: auto; /* Allows scrolling INSIDE the modal if needed */
         }
         
         /* Headings and Text Styles */
-        .modal-content h1 { color: #e91e63; font-size: 2.2em; margin-bottom: 25px; text-align: center; }
-        /* تاریخ پیدائش (DOB) کا کوڈ ہٹا دیا گیا ہے */
+        .modal-content h1 { color: #e91e63; font-size: 2em; margin-bottom: 25px; text-align: center; }
         .modal-content p { color: #333; font-size: 1.1em; line-height: 1.8; }
         
         /* Close Button */
@@ -58,16 +59,15 @@
             font-size: 28px; font-weight: bold; 
             text-decoration: none; position: absolute; top: 10px; left: 20px; 
         }
-        .close-btn:hover, .close-btn:focus { color: #e91e63; cursor: pointer; }
-
+        
         /* I LOVE YOU Text Style (Hidden initially) */
         #iLoveYouMessage {
-            font-size: 3em;
+            font-size: 2.5em; /* Adjusted size for mobile */
             color: #e91e63;
             font-weight: bold;
             text-align: center;
-            opacity: 0; /* Hidden by default */
-            transition: opacity 1s; /* Smooth fade in */
+            opacity: 0; 
+            transition: opacity 1s; 
             margin-top: 20px;
         }
 
@@ -77,19 +77,20 @@
             to { opacity: 1; transform: scale(1); } 
         }
         
+        /* Pulse now has the red glow integrated */
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-            100% { transform: scale(1.02); box-shadow: 0 10px 40px rgba(233, 30, 99, 0.5); }
+            0% { transform: scale(1); box-shadow: 0 0 25px rgba(233, 30, 99, 0.8); }
+            100% { transform: scale(1.02); box-shadow: 0 0 35px rgba(233, 30, 99, 1), 0 0 60px rgba(233, 30, 99, 0.6); }
         }
 
         /* Heart Animation */
         @keyframes heartMove {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-70vh) rotate(30deg); opacity: 0; }
+            100% { transform: translateY(-100vh) rotate(30deg); opacity: 0; } /* **FIX: Travels further up** */
         }
 
         .heart {
-            position: absolute;
+            position: fixed; /* Use fixed for better mobile performance */
             bottom: -50px;
             width: 30px;
             height: 30px;
@@ -108,15 +109,8 @@
             border-radius: 50%;
         }
 
-        .heart:before {
-            top: -15px;
-            left: 0;
-        }
-
-        .heart:after {
-            left: 15px;
-            top: 0;
-        }
+        .heart:before { top: -15px; left: 0; }
+        .heart:after { left: 15px; top: 0; }
 
         /* Multiple hearts for variety */
         .heart:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-duration: 8s; background: #ff7f99; }
@@ -142,13 +136,13 @@
     <h1>میری حیات کی روشنی، سالگرہ بہت مبارک ہو! 🎂</h1>
     
     <p>
-        آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں **خوشی اور روشنی** کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
+        آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں خوشی اور روشنی کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
     </p>
     <p style="font-style: italic; color: #777;">
         میں خدا سے دعا کرتا ہوں کہ آپ کی ہر خواہش پوری ہو، آپ کی زندگی کا ہر لمحہ حسین ہو۔ میں ہمیشہ آپ کا ہاتھ تھامے رہوں گا، چاہے راستہ کتنا ہی مشکل کیوں نہ ہو۔
     </p>
     <p>
-        میں آپ سے کل بھی پیار کرتا تھا، آج بھی کرتا ہوں، اور ہمیشہ کرتا رہوں گا۔ **Happy Birthday, My Everything!**
+        میں آپ سے کل بھی پیار کرتا تھا، آج بھی کرتا ہوں، اور ہمیشہ کرتا رہوں گا۔ Happy Birthday, My Everything!
     </p>
     
     <div id="iLoveYouMessage">
@@ -157,7 +151,7 @@
 
     <p style="margin-top: 20px; color: #e91e63; font-weight: bold; text-align: center;">
         آپ کا پیار،<br>
-        [ملک وہاب]
+        [Malik Wahab]
     </p>
     </div>
 </div>
