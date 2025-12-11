@@ -1,67 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>میری حیات کی روشنی، سالگرہ مبارک ہو! 🎂 !</title>
-    <style>
-        /* CSS to style the pop-up/modal */
-        body { margin: 0; background-color: #f7f7f7; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .birthday-modal {
-            display: block; /* Show the modal right away */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>میری حیات کی روشنی، سالگرہ مبارک ہو!</title>
+    <style>
+        /* Added Urdu Font for better display */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap');
+        
+        /* CSS to style the pop-up/modal */
+        body { 
+            margin: 0; 
+            background-color: #f7f7f7; 
+            font-family: 'Noto Nastaliq Urdu', Arial, sans-serif; /* Priority to Urdu font */
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            text-align: right; /* Align text to the right for Urdu */
         }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 15% auto; /* Center the box */
-            padding: 30px;
-            border-radius: 15px;
-            width: 80%;
-            max-width: 500px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            animation: fadeIn 1s;
+        .birthday-modal {
+            display: block; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; 
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: right; /* Text alignment for Urdu */
+            animation: fadeIn 1s;
+        }
+        .modal-content h1 { color: #e91e63; font-size: 2.2em; margin-bottom: 5px; text-align: center; }
+        .modal-content h2.dob { 
+            color: #333; 
+            font-size: 1.5em; 
+            margin-bottom: 25px; 
+            font-weight: bold; 
+            text-align: center; 
+            border-bottom: 2px solid #e91e63;
+            padding-bottom: 10px;
         }
-        .modal-content h1 { color: #e91e63; font-size: 2.5em; margin-bottom: 10px; }
-        .modal-content p { color: #333; font-size: 1.1em; line-height: 1.6; }
-        .close-btn { 
-            color: #aaa; float: right; font-size: 28px; font-weight: bold; 
-            text-decoration: none; position: absolute; top: 10px; right: 20px;
-        }
-        .close-btn:hover, .close-btn:focus { color: #e91e63; cursor: pointer; }
+        .modal-content p { color: #333; font-size: 1.1em; line-height: 1.8; }
+        .close-btn { 
+            color: #aaa; float: left; /* Changed to left for Urdu layout */
+            font-size: 28px; font-weight: bold; 
+            text-decoration: none; position: absolute; top: 10px; left: 20px; /* Position adjusted */
+        }
+        .close-btn:hover, .close-btn:focus { color: #e91e63; cursor: pointer; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-    </style>
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+    </style>
 </head>
 <body>
 
 <div id="birthdayModal" class="birthday-modal">
-  <div class="modal-content">
-    <a href="#" class="close-btn" onclick="document.getElementById('birthdayModal').style.display='none';">&times;</a>
-    
-    <h1>میری حیات کی روشنی، سالگرہ بہت مبارک ہو! 🎂 🎂</h1>
+  <div class="modal-content">
+        <a href="#" class="close-btn" onclick="document.getElementById('birthdayModal').style.display='none';">&times;</a>
+    
+    <h1>میری حیات کی روشنی، سالگرہ بہت مبارک ہو! 🎂</h1>
+    
+        <h2 class="dob">
+        تاریخ: [تاریخ پیدائش یہاں لکھیں]
+    </h2>
+        <p>
+       آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں خوشی اور روشنی کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
+    </p>
+    <p style="font-style: italic; color: #777;">
+       میں خدا سے دعا کرتا ہوں کہ آپ کی ہر خواہش پوری ہو، آپ کی زندگی کا ہر لمحہ حسین ہو۔ میں ہمیشہ آپ کا ہاتھ تھامے رہوں گا، چاہے راستہ کتنا ہی مشکل کیوں نہ ہو۔
+    </p>
     <p>
-       آج کا دن صرف آپ کی پیدائش کا دن نہیں، بلکہ میری زندگی میں خوشی اور روشنی کے آنے کا دن ہے۔ آپ کا وجود میرے لیے کسی معجزے سے کم نہیں۔ جب میں آپ کو دیکھتا ہوں، تو وقت رک جاتا ہے، اور میں محسوس کرتا ہوں کہ دنیا کی ساری خوبصورتی میرے سامنے ہے۔ آپ کی معصوم مسکراہٹ، آپ کا ساتھ اور آپ کا خلوص ہی میری سب سے بڑی دولت ہے۔
-    </p>
-    <p style="font-style: italic; color: #777;">
-       میں خدا سے دعا کرتا ہوں کہ آپ کی ہر خواہش پوری ہو، آپ کی زندگی کا ہر لمحہ حسین ہو۔ میں ہمیشہ آپ کا ہاتھ تھامے رہوں گا، چاہے راستہ کتنا ہی مشکل کیوں نہ ہو۔
-    <p>
-       میں آپ سے کل بھی پیار کرتا تھا، آج بھی کرتا ہوں، اور ہمیشہ کرتا رہوں گا۔ Happy Birthday, My Everything!
-    <p style="margin-top: 20px; color: #e91e63; font-weight: bold;">
-        Love Always,<br>
-        [Malik Wahab]
-    </p>
-    </div>
+       میں آپ سے کل بھی پیار کرتا تھا، آج بھی کرتا ہوں، اور ہمیشہ کرتا رہوں گا۔ Happy Birthday, My Everything!
+    </p>
+    <p style="margin-top: 20px; color: #e91e63; font-weight: bold; text-align: center;">
+        آپ کا پیار،<br>
+        ملک وہاب
+    </p>
+    </div>
 </div>
 
 </body>
-
 </html>
-
